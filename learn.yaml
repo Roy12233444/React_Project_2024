@@ -1,0 +1,638 @@
+/* From Uiverse.io by omriluz */ 
+.form-container {
+  width: 400px;
+  background: linear-gradient(#212121c3, #212121) padding-box,
+              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+  border: 2px solid transparent;
+  padding: 32px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.form-container button:active {
+  scale: 0.95;
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.form-container .form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  background-color: transparent;
+  border: 1px solid #414141;
+}
+
+.form-container .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  resize: none;
+  color: #fff;
+  height: 96px;
+  border: 1px solid #414141;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-group textarea:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+  font-family: inherit;
+  color: #717171;
+  font-weight: 600;
+  width: 40%;
+  background: #313131;
+  border: 1px solid #414141;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.form-container .form-submit-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+
+
+header {
+  height: 10rem;
+  box-shadow: rgba(33, 35, 38, 0.3) 0px 10px 10px -10px;
+  background-color: #202020;
+  width: 100%;
+
+  & .container {
+    height: 10rem;
+  }
+}
+
+.navbar-grid {
+  grid-template-columns: 0.5fr 1fr;
+  align-items: center;
+  justify-content: flex-end;
+  height: 10rem;
+  padding: 0 3.2rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  /* background-color: yellow; */
+  gap: 3.2rem;
+  color: #fff;
+
+  & li a {
+    color: #fff;
+  }
+}
+
+.ham-menu {
+  display: none;
+}
+
+
+https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags
+
+
+
+
+
+/* General styles for the card */
+.country-card {
+    width: 300px;
+    height: 390px;
+    perspective: 1000px; /* Creates a 3D space for the flip effect */
+    list-style: none;
+    margin: 20px;
+}
+
+.container-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Ensures child elements are transformed in 3D space */
+}
+
+.country-card:hover .container-card {
+    transform: rotateY(180deg); /* Rotates the card on hover */
+}
+
+/* Front side of the card */
+.bg-white-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back side when front is shown */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(179, 161, 161);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bg-white-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Back side of the card */
+.container-card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg); /* Backside should be hidden initially */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a39a9a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+* General styles for the card */
+.country-card {
+    width: 300px;
+    height: 400px;
+    list-style: none;
+    margin: 20px;
+    position: relative;
+    overflow: hidden; /* Ensures the progress bar doesn't overflow */
+}
+
+.container-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(188, 152, 152);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Progress bar styles */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #79a179; /* Green progress bar color */
+    transition: height 0.5s ease-in-out;
+}
+
+.country-card:hover .progress-bar {
+    height: 100%; /* Fills up the progress bar when hovered */
+}
+
+
+
+
+/* General styles for the card */
+.country-card {
+    width: 300px;
+    height: 400px;
+    list-style: none;
+    margin: 20px;
+    position: relative;
+    overflow: hidden; /* Keeps everything within the card boundaries */
+}
+
+.container-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(61, 59, 59);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Progress bar styles */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Initial state, no height */
+    background-color: rgba(144, 170, 145, 0.292); /* Semi-transparent green */
+    transition: height 2s ease-in-out;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Progress bar hover effect */
+.country-card:hover .progress-bar {
+    height: 100%; /* Fills the progress bar to the top when hovered */
+}
+
+/* Country name inside the progress bar */
+.country {
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Fade in the country name when progress bar fills */
+.country-card:hover .card-title {
+    opacity: 1; /* Becomes visible as the progress bar fills */
+}
+
+
+
+/* About Section */
+
+.section-about {
+  margin: 0 auto 9rem auto;
+}
+
+.gradient-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem;
+}
+
+@media screen and (max-width: 991px) {
+  .gradient-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.container-title {
+  text-align: center;
+  padding: 0 !important;
+  margin-bottom: 40px;
+  font-size: 40px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 60px;
+}
+
+
+/*cards*/
+.card {
+  box-sizing: border-box;
+  max-width: 55rem;
+  width: 100%;
+  margin-inline: auto;
+  height: 259px;
+  background: linear-gradient(71deg, #080509, #1a171c, #080509);
+  /* border: 1px solid white; */
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align:start;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+}
+
+.card:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+.container-card {
+  position: relative;
+  border: 2px solid transparent;
+   
+
+  /* background-image: url(https://images.unsplash.com/photo-1455157823797-3019317cbcf0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); */
+  /* background-size: cover; */
+  background-clip: padding-box;
+  /* background-position: center; */
+
+  border-radius: 17px;
+  padding: 40px;
+}
+
+.card-title {
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.02rem;
+  line-height: 40px;
+  font-style: normal;
+  font-size: 28px;
+  padding-bottom: 8px;
+}
+
+.card-description {
+  font-weight: 600;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  max-width: 470px;
+}
+
+
+
+import { useEffect, useState, useTransition } from "react";
+import { useParams } from "react-router-dom"
+import { getCountryIndData } from "../../api/postApi";
+import { Loader } from "../UI/Loader";
+
+export const CountryDetails = () => {
+    const params = useParams();
+
+
+    const [isPending, startTransition] = useTransition();
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        startTransition(async () => {
+            const res = await getCountryIndData(params.id);
+
+            if(res.status === 200) {
+                setCountries(res.data[0]);
+            }
+            
+        });
+    }, [params.id]);
+
+    if (isPending) return <Loader />;
+
+    console.log(params);
+    return (
+      <section className="card country-detail-card container">
+        <div className="container-card bg-white-box">
+          <div className="country-image grid grid-two-cols">
+            <img
+              src={countries.flags.svg}
+              alt={countries.flags.alt}
+              className="flag"
+            />
+            <div className="country-content">
+              <p className="country-name"> {countries.name.official} </p>
+            </div>
+
+            <div className="infoContainer">
+              <p>
+                <span className="card-description">Native Names:</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+}
+
+
+
+
+
+* Layout for cards */
+.gradient-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cards {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    margin: 20px;
+    border-radius: 10px;
+    perspective: 1000px; /* Creates 3D space for the effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.container-cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e2022;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Initially show only the country name and hide other details */
+.card-titles {
+    font-size: 1.6rem;
+    margin-right: ;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-descriptions {
+    opacity: 0; /* Hidden initially */
+    transition: opacity 1s ease-in-out; /* Smooth transition for reveal */
+    color: white;
+}
+
+/* Progress bar styles */
+.cards::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent green */
+    transition: height 2s ease-in-out; /* Smooth progress from bottom */
+}
+
+/* On hover, reveal progress bar and card details */
+.cards:hover::before {
+    height: 100%; /* Fills the card with the progress effect */
+}
+
+.cards:hover .card-descriptions {
+    opacity: 1; /* Show card details on hover */
+}
+
+/* Smooth fade-in of container on hover */
+.cards:hover .container-cards {
+    transform: scale(1.05); /* Slightly scales up the card on hover */
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+    .cards {
+        width: 100%;
+    }
+
+    .card-titles {
+        font-size: 1.4rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ham-menu {
+  display: none;
+}
+
+/* media queries */
+
+@media screen and (max-width: 998px) {
+  .menu-web{
+    display: none;
+  }
+
+  .ham-menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .menu-mobile{
+    position: absolute;
+    top: 10rem;
+    left: 0;
+    background-color: #0d1212;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px;
+  }
+
+  .menu-mobile ul{
+    
+  }
+}
